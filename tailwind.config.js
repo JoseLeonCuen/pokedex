@@ -1,18 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
+    // colors: {
+    //   'bug': '#5cea54',
+    //   'dark': '#664b2d',
+    //   'dragon': '#633b97',
+    //   'electric': '#e9d419',
+    //   'fairy': '#eda8e4',
+    //   'fight': '#954040',
+    //   'fire': '#ff0000',
+    //   'flying': '#9590dd',
+    //   'ghost': '#6927dc',
+    //   'grass': '#62e862',
+    //   'ground': '#bfb54a',
+    //   'ice': '#54d6dd',
+    //   'normal': '#959494',
+    //   'poison': '#930493',
+    //   'psychic': '#e634e6',
+    //   'rock': '#deb887',
+    //   'steel': '#9989bd',
+    //   'water': '#3c6be2'
+    // },
+    extend: {},
   },
   plugins: [],
 }
+
