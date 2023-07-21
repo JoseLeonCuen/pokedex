@@ -46,15 +46,18 @@ export type Stat = {
 }
 
 export type Pokemon = {
-  abilities: Ability[];
-  height: number;
-  id: number;
-  weight: number;
-  moves: Move[];
-  name: string;
-  order: number;
-  species: Data;
-  sprites: SpeechRecognitionResult;
-  stats: Stat[];
-  types: Type[];
+  entry_number: number;
+  pokemon_species: {
+    abilities: Ability[];
+    height: number;
+    id: number;
+    weight: number;
+    moves: Move[];
+    name: string;
+    order: number;
+    species: Data;
+    sprites: SpeechRecognitionResult;
+    stats: Stat[];
+    types: Type[];
+  }
 }

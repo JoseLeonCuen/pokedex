@@ -23,14 +23,14 @@ export default function Region() {
         return json;
       })
       .then(json => {
-        console.log("FETCHING GEN:::");
-        fetch(json.main_generation.url)
+        const url = json.pokedexes[0]?.url;
+        fetch(url)
         .then(result => {
           return result.json();
         })
         .then(json => {
-          console.log("POKEMON:::", json);
-          setPokemon(json?.pokemon_species);
+          const pokemonData = json?.pokemon_entries;
+          setPokemon(pokemonData);
         })
       })
   }, [regionId]);
@@ -51,9 +51,9 @@ export default function Region() {
         <ul className="p-2">
           {pokemon.map( pkmn => {
             return (
-              <li className="m-1 bg-gray-100 hover:bg-gray-300" key={pkmn.name}>
-                <button type="button" onClick={() => router.push(`/${pkmn.name}`)}>
-                  {pkmn?.name.replace(/-f/, " ♀").replace(/-m/, " ♂")}
+              <li className="m-1 bg-gray-100 hover:bg-gray-300" key={pkmn.pokemon_species.name}>
+                <button type="button" onClick={() => router.push(`/${pkmn.pokemon_species.name}`)}>
+                  {pkmn.pokemon_species.name.replace(/-f/, " ♀").replace(/-m/, " ♂")}
                 </button>
               </li>
             )
