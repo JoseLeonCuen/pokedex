@@ -1,11 +1,12 @@
 import React from "react";
-import { Ability } from "../utils/types";
-import capitilize from "../utils/capitalize";
+import { Ability } from "../../utils/types";
+import { capitalize, cleanString } from "../../utils/utils";
+import Info from "./Info";
+import Badge from "../Badge";
 
 const InfoType: React.FC<{abilities: Ability[]}> = ({abilities}) => {
   return (
-    <div className="border-2 rounded-lg border-cyan-500 m-2 p-2 w-40">
-      <h2>Abilities</h2>
+    <Info title="Abilities">
       <div className="">
         {abilities.map(ability => {
           return (
@@ -13,12 +14,15 @@ const InfoType: React.FC<{abilities: Ability[]}> = ({abilities}) => {
               key={ability?.ability?.name}
               className={"m-1 rounded-sm"}
               >
-                {capitilize(ability?.ability?.name)}
+                {cleanString(capitalize(ability?.ability?.name))}
+                {ability.is_hidden && (
+                  <Badge>Hidden</Badge>
+                )}
               </p>
           )
         })}
       </div>
-    </div>
+    </Info>
   )
 }
 

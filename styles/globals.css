@@ -16,3 +16,16 @@
   */
  @tailwind utilities;
 
+@layer components {
+  .primary {
+    @apply bg-menu my-1 p-1 rounded-md hover:bg-primary-hover;
+  }
+  
+  .menu {
+    @apply p-2 bg-blue-dark w-full rounded-sm text-white hover:bg-blue;
+  }
+  
+  .submenu {
+    @apply block bg-submenu w-full border-b-2 rounded-sm py-1 px-2 border-blue-light hover:bg-blue hover:text-white dark:hover:bg-blue group-last:rounded-b-xl md:text-left sm:text-center dark:bg-blue-darkest;
+  }
+}

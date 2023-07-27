@@ -1,7 +1,8 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
-import capitalize from "../../utils/capitalize";
+import { capitalize } from "../../utils/utils";
 import { Region, Pokemon, Data } from "../../utils/types";
+import ListItem from "../../components/ListItem";
 
 export default function Region() {
   const [region, setRegion] = useState("");
@@ -37,32 +38,40 @@ export default function Region() {
 
   return (
     region ? (
-      <div className="p-2 border-1">
-        <h1 className="p-2">{capitalize(region)} Pokedex</h1>
-        <hr />
-        <ul className="p-2">
+      <div className="p-2">
+        <h1 className="p-2 w-full border-b-2">{capitalize(region)} Pokedex</h1>
+        {/* GAMES */}
+        {/* <ul className="p-2">
           {games.map( game => {
             return (
               <li className="bg-gray-200 m-1 max-w-sm" key={game.name}>{game.name}</li>
             )
           })}
-        </ul>
+        </ul> */}
         <hr />
-        <ul className="p-2">
-          {pokemon.map( pkmn => {
-            return (
-              <li className="m-1 bg-gray-100 hover:bg-gray-300" key={pkmn.pokemon_species.name}>
-                <button type="button" onClick={() => router.push(`/${pkmn.pokemon_species.name}`)}>
-                  {pkmn.pokemon_species.name.replace(/-f/, " ♀").replace(/-m/, " ♂")}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+        {/* POKEMON */}
+        { pokemon.length ? (
+          <ul className="p-2">
+            {pokemon.map( pkmn => {
+              let data = {
+                name: pkmn.pokemon_species.name,
+                url: pkmn.pokemon_species.url
+              }
+              return (
+                <ListItem
+                  key={pkmn.pokemon_species.name}
+                  item={data}
+                />
+              )
+            })}
+          </ul>) : (
+            <p>Loading pokemon...</p>
+          )
+        }
       </div>
     ) : (
     <div className="p-2 border-1">
-      <p>Loading...</p>
+      <p>Loading region...</p>
     </div>
    )
   )

@@ -2,12 +2,12 @@ import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Region } from "../utils/types";
-import capitalize from "../utils/capitalize";
+import { capitalize } from "../utils/utils";
 import Button from "./Button";
 
-const PokedexMenu: React.FC = () => {
+const GenerationMenu: React.FC = () => {
   const [regions, setRegions]: [Region[], Dispatch<SetStateAction<[]>>] = useState([]);
-  const [showOptions, setShowOptions] = useState(false);
+  const [showOptions, setShowOptions] = useState(true);
 
   const router = useRouter();
 
@@ -18,13 +18,12 @@ const PokedexMenu: React.FC = () => {
         return result.json();
       })
       .then(json => {
-        console.log("JSON:::", json);
         setRegions(json.results);
       })
   }, []);
 
-  function visitRegion(regionName: string) {
-    // router.push(`/${regionName}`)
+  function visitRegion(regionName: string, id: number) {
+    router.push({ pathname: `/regions/${regionName}`, query: {id}})
   }
 
   return (
@@ -33,19 +32,18 @@ const PokedexMenu: React.FC = () => {
       onClick={(() => setShowOptions(!showOptions))}
       variant="menu"
     >
-      Pokédex
+      Generations
     </Button>
     {showOptions ? (
-      <div className="px-2 py-1">
+      <div className="px-2">
         {regions.length ? (
           <ul>
             {regions.map((region, idx) => {
               return (
-                <li key={region.name}>
-                  <Button onClick={() => visitRegion(region.name)} variant="submenu">
-                    {/* {region.name} */}
-                    <Link href={{pathname: `/regions/${region.name}`, query: {id: idx + 1} }}>{capitalize(region.name)}</Link>
-                  </Button>
+                <li className="group" key={region.name}>
+                  <Link className="submenu" href={{ pathname: `/regions/${region.name}`, query: {id: idx + 1}}}>
+                    <p>{idx+1}<span className="md:inline sm:hidden">{"- " + capitalize(region.name)}</span></p>
+                  </Link>
                 </li>
               )
             })}
@@ -61,4 +59,4 @@ const PokedexMenu: React.FC = () => {
   )
 }
 
-export default PokedexMenu
+export default GenerationMenu;
