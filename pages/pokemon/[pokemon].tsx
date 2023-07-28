@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
-import { capitalize, genderize } from "../../utils/utils";
+import { namePokemon } from "../../utils/utils";
 import { Pokemon } from "../../utils/types";
 import InfoType from "../../components/Info/InfoType";
 import InfoAbility from "../../components/Info/InfoAbility";
@@ -29,7 +29,7 @@ export default function Pokemon() {
     <div className="">
       {pokemon !== null ? (
         <div className="">
-          <h1 className="px-4 py-2 text-2xl border-b-2 border-blue-light">{capitalize(genderize(pokemon.name))}</h1>
+          <h1 className="px-4 py-2 text-2xl border-b-2 border-blue-light">{namePokemon(pokemon.name)}</h1>
           <div className="m-2 flex flex-wrap md:flex-row sm:flex-col">
             <InfoImage sprites={pokemon.sprites}/>
             <InfoType types={pokemon.types} />

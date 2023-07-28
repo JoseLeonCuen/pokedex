@@ -1,6 +1,7 @@
 import React from "react";
 import { Type } from "../../utils/types";
 import Info from "./Info";
+import BadgeType from "../Badge/BadgeType";
 
 const InfoType: React.FC<{types: Type[]}> = ({types}) => {
   return (
@@ -8,12 +9,7 @@ const InfoType: React.FC<{types: Type[]}> = ({types}) => {
       <div className="flex">
         {types.map(type => {
           return (
-            <p
-              key={type?.type?.name}
-              className={`text-center text-white text-xs w-20 m-1 rounded-sm type bg-${type.type.name}`}
-            >
-              {type?.type?.name.toUpperCase()}
-            </p>
+            <BadgeType key={type.type.name} type={type.type.name} />
           )
         })}
       </div>

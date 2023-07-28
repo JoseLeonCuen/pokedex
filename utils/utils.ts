@@ -7,8 +7,12 @@ export function cleanString(str: string) {
   return str.replace(/[_-]/, " ").trim();
 }
 
-export function genderize(str: string) {
-  return str.replace(/-f/, " ♀").replace(/-m/, " ♂");
+function genderize(str: string) {
+  return str.replace(/-f$/, " ♀").replace(/-m$/, " ♂");
+}
+
+export function namePokemon(str: string) {
+  return capitalize(cleanString(genderize(str)));
 }
 
 export function getGen(num: number) {

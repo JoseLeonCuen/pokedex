@@ -2,7 +2,7 @@ import React from "react";
 import { Ability } from "../../utils/types";
 import { capitalize, cleanString } from "../../utils/utils";
 import Info from "./Info";
-import Badge from "../Badge";
+import Badge from "../Badge/Badge";
 
 const InfoType: React.FC<{abilities: Ability[]}> = ({abilities}) => {
   return (

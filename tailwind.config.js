@@ -45,7 +45,7 @@ module.exports = {
       dragon: '#633b97',
       electric: '#e9d419',
       fairy: '#eda8e4',
-      fight: '#954040',
+      fighting: '#954040',
       fire: '#ff0000',
       flying: '#9590dd',
       ghost: '#6927dc',
