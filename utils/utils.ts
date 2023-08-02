@@ -70,7 +70,7 @@ export function getGen(num: number) {
   }
 }
 
-function getPokemonNumber(url: string) {
+export function getPokemonNumber(url: string) {
   return Number.parseInt(url.match(/\/([0-9]+)\/$/)?.[1] || "0");
 }
 
