@@ -48,6 +48,7 @@ export type Stat = {
 export type Pokemon = {
   entry_number: number;
   pokemon_species: {
+    url: string;
     abilities: Ability[];
     height: number;
     id: number;

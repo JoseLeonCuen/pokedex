@@ -1,26 +1,24 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
-import { capitalize } from "../../utils/utils";
-import { Region, Pokemon, Data } from "../../utils/types";
+import { capitalize, isFromGen } from "../../utils/utils";
+import { Pokemon, Data } from "../../utils/types";
 import ListItem from "../../components/ListItem";
 
-export default function Region() {
+export default function Generation() {
   const [region, setRegion] = useState("");
-  const [games, setGames] = useState([] as Data[]);
   const [pokemon, setPokemon] = useState([] as Pokemon[]);
 
   const router = useRouter();
 
-  const regionId = router.query.id;
+  const genId = Number.parseInt(router.query.id as string);
   useEffect(() => {
     console.log("FETCHING SINGLE REGION:::");
-    fetch(`https://pokeapi.co/api/v2/region/${regionId}`)
+    fetch(`https://pokeapi.co/api/v2/region/${genId + 1}`)
       .then(result => {
         return result.json();
       })
       .then(json => {
         setRegion(json?.name);
-        setGames(json?.version_groups);
         return json;
       })
       .then(json => {
@@ -31,24 +29,18 @@ export default function Region() {
         })
         .then(json => {
           const pokemonData = json?.pokemon_entries;
-          setPokemon(pokemonData);
+          const pokemonFromThisGen = pokemonData.filter( (pokemon: Pokemon) => {
+            return isFromGen(genId, pokemon.pokemon_species.url);
+          })
+          setPokemon(pokemonFromThisGen);
         })
       })
-  }, [regionId]);
+  }, [genId]);
 
   return (
     region ? (
       <div className="p-2">
         <h1 className="p-2 w-full border-b-2">{capitalize(region)} Pokedex</h1>
-        {/* GAMES */}
-        {/* <ul className="p-2">
-          {games.map( game => {
-            return (
-              <li className="bg-gray-200 m-1 max-w-sm" key={game.name}>{game.name}</li>
-            )
-          })}
-        </ul> */}
-        <hr />
         {/* POKEMON */}
         { pokemon.length ? (
           <ul className="p-2">

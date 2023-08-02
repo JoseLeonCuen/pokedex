@@ -41,7 +41,7 @@ const GenerationMenu: React.FC = () => {
             {regions.map((region, idx) => {
               return (
                 <li className="group" key={region.name}>
-                  <Link className="submenu" href={{ pathname: `/regions/${region.name}`, query: {id: idx + 1}}}>
+                  <Link className="submenu" href={{ pathname: `/regions/${region.name}`, query: {id: idx}}}>
                     <p>{idx+1}<span className="md:inline sm:hidden">{"- " + capitalize(region.name)}</span></p>
                   </Link>
                 </li>
