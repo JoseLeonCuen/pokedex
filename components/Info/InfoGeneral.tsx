@@ -1,5 +1,5 @@
 import React from "react";
-import { getGen } from "../../utils/utils";
+import { getGen, getHeight, getWeight } from "../../utils/utils";
 import Info from "./Info";
 
 interface InfoGeneralProps {
@@ -17,10 +17,10 @@ const InfoGeneral: React.FC<InfoGeneralProps> = ({id, height, weight}) => {
           Original Gen: {gen}
         </p>
         <p className={"m-1 rounded-sm"}>
-          Height: {height}
+          Height: {getHeight(height)}
         </p>
         <p className={"m-1 rounded-sm"}>
-          Weight: {weight}
+          Weight: {getWeight(weight)}
         </p>
       </div>
     </Info>

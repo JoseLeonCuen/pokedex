@@ -11,6 +11,15 @@ function genderize(str: string) {
   return str.replace(/-f$/, " ♀").replace(/-m$/, " ♂");
 }
 
+export function getHeight(height: number) {
+  return height/10 + " m";
+}
+
+export function getWeight(weight: number) {
+  return weight/10 + " kg";
+}
+
+
 export function namePokemon(str: string) {
   return capitalize(cleanString(genderize(str)));
 }
