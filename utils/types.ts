@@ -45,20 +45,22 @@ export type Stat = {
   stat: Data;
 }
 
+export type PokemonSpecies = {
+  url: string;
+  abilities: Ability[];
+  height: number;
+  id: number;
+  weight: number;
+  moves: Move[];
+  name: string;
+  order: number;
+  species: Data;
+  sprites: Sprites;
+  stats: Stat[];
+  types: Type[];
+}
+
 export type Pokemon = {
   entry_number: number;
-  pokemon_species: {
-    url: string;
-    abilities: Ability[];
-    height: number;
-    id: number;
-    weight: number;
-    moves: Move[];
-    name: string;
-    order: number;
-    species: Data;
-    sprites: SpeechRecognitionResult;
-    stats: Stat[];
-    types: Type[];
-  }
+  pokemon_species: PokemonSpecies;
 }
