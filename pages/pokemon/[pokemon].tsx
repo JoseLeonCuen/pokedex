@@ -16,7 +16,6 @@ export default function Pokemon() {
 
   useEffect(() => {
     if(pokemonNumber) {
-      console.log("FETCHING POKEMON:::");
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
         .then(result => {
           return result.json();
@@ -32,12 +31,12 @@ export default function Pokemon() {
     <div className="">
       {pokemon !== null ? (
         <div className="">
-          <h1 className="px-4 py-2 text-2xl border-b-2 border-blue-light">
+          <h1 className="px-4 py-2 w-full border-b-2 border-blue-light bg-blue-dark sm:text-lg md:text-2xl">
             <BadgeLink href={`/pokemon/${pokemonNumber-1}`} direction="prev" />
-            <span className="mx-2">{`# ${pokemonNumber} - ${namePokemon(pokemon.name)}`}</span>
             <BadgeLink href={`/pokemon/${pokemonNumber+1}`} direction="next" />
+            <span className="mx-2">{`# ${pokemonNumber} - ${namePokemon(pokemon.name)}`}</span>
           </h1>
-          <div className="m-2 flex flex-wrap md:flex-row sm:flex-col">
+          <div className="m-2 flex flex-wrap">
             <InfoImage sprites={pokemon.sprites}/>
             <InfoType types={pokemon.types} />
             <InfoAbility abilities={pokemon.abilities} />

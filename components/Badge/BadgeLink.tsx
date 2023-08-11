@@ -9,9 +9,9 @@ interface BadgeLinkProps {
 
 const BadgeLink: React.FC<BadgeLinkProps> = ({href, direction}) => {
   return (
-    <Link href={href}>
+    <Link className="flex-grow-0" href={href}>
       <Badge
-        className={`text-lg mx-1`}
+        className={`text-xl px-3 p-1`}
       >
         {direction == "next" ? ">" : "<"}
       </Badge>

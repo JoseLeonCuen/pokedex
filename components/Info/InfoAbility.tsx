@@ -6,7 +6,7 @@ import Badge from "../Badge/Badge";
 
 const InfoType: React.FC<{abilities: Ability[]}> = ({abilities}) => {
   return (
-    <Info title="Abilities">
+    <Info title="Abilities" variant="secondary">
       <div className="">
         {abilities.map(ability => {
           return (

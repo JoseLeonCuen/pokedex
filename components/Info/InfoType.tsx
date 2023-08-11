@@ -5,7 +5,7 @@ import BadgeType from "../Badge/BadgeType";
 
 const InfoType: React.FC<{types: Type[]}> = ({types}) => {
   return (
-    <Info title="Type">
+    <Info title="Type" variant="secondary">
       <div className="flex">
         {types.map(type => {
           return (

@@ -65,10 +65,6 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-    minWidth: {
-      '1/2': '50%',
-      '40': '40%',
-    },
     extend: {},
   },
   darkMode: "class",

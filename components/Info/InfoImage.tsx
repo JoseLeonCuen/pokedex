@@ -21,7 +21,7 @@ const InfoType: React.FC<InfoImageProps> = ({title, sprites}) => {
   });
 
   return (
-    <Info>
+    <Info className="">
       <div className="flex place-content-center">
         {spriteURLs.map( (url, idx) => {
           return url ? (

@@ -27,12 +27,12 @@ const GenerationMenu: React.FC = () => {
   }
 
   return (
-  <div className="">
+  <div className="md:w-40 sm:w-20">
     <Button
       onClick={(() => setShowOptions(!showOptions))}
       variant="menu"
     >
-      Generations
+      Gen<span className="md:inline sm:hidden">eration</span>s
     </Button>
     {showOptions ? (
       <div className="px-2">
