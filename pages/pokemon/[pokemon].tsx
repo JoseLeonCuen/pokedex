@@ -30,7 +30,7 @@ export default function Pokemon() {
   return (
     <div className="">
       {pokemon !== null ? (
-        <main className="">
+        <div className="">
           <h2 className="px-4 py-2 w-full border-b-2 border-blue-light bg-blue-lightest sm:text-lg md:text-2xl dark:bg-blue-dark">
             <BadgeLink href={`/pokemon/${pokemonNumber-1}`} direction="prev" />
             <BadgeLink href={`/pokemon/${pokemonNumber+1}`} direction="next" />
@@ -42,11 +42,11 @@ export default function Pokemon() {
             <InfoAbility abilities={pokemon.abilities} />
             <InfoGeneral weight={pokemon.weight} height={pokemon.height} id={pokemon.id} />
           </div>
-        </main>
+        </div>
       ) : (
-        <main>
+        <div>
           <h2>Loading... </h2>
-        </main>
+        </div>
       )}
     </div>
   )

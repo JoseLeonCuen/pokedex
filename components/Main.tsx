@@ -5,9 +5,12 @@ interface MainProps {
 }
 const Panel: React.FC<MainProps> = ({children}) => {
   return (
-  <div className="w-full">
+  <main className="
+    col-span-4 row-span-4
+    w-full overflow-y-auto
+  ">
     {children}
-  </div>
+  </main>
   )
 }
 

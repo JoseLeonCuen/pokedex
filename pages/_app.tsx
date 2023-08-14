@@ -14,16 +14,18 @@ export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(true);
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="bg-background text-blue-dark dark:bg-background-dark dark:text-blue-lightest">
+      <div className="
+        grid grid-rows-6 grid-cols-5
+        bg-background text-blue-dark h-screen
+        dark:bg-background-dark dark:text-blue-lightest
+      ">
         <Header mode={darkMode} setMode={setDarkMode}/>
-        <div className="flex">
           <Panel>
             <GenerationMenu />
           </Panel>
           <Main>
             <Component {...pageProps} />
           </Main>
-        </div>
         <Footer />
       </div>
     </div>

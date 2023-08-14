@@ -11,7 +11,12 @@ const Panel: React.FC<PanelProps> = ({children, variant="left"}) => {
     "border-l-4"
   )
   return (
-  <div className={`flex-col ${borderSide} p-4  border-blue-light bg-background md:w-48 dark:bg-background-dark`}>
+  <div className={`
+    row-span-4
+    flex ${borderSide} p-4  border-blue-light bg-background
+    dark:bg-background-dark
+    justify-center
+  `}>
     {children}
   </div>
   )

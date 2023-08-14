@@ -12,7 +12,6 @@ export default function Generation() {
 
   const genId = Number.parseInt(router.query.id as string);
   useEffect(() => {
-    console.log("FETCHING SINGLE REGION:::");
     fetch(`https://pokeapi.co/api/v2/region/${genId + 1}`)
       .then(result => {
         return result.json();
@@ -29,6 +28,7 @@ export default function Generation() {
         })
         .then(json => {
           const pokemonData = json?.pokemon_entries;
+          console.log("REGION DATA!!", pokemonData);
           const pokemonFromThisGen = pokemonData.filter( (pokemon: Pokemon) => {
             return isFromGen(genId, pokemon.pokemon_species.url);
           })
@@ -39,7 +39,7 @@ export default function Generation() {
 
   return (
     region ? (
-      <main className="p-2">
+      <div className="p-2">
         <h2 className="p-2 w-full border-b-2">{capitalize(region)} Pokédex</h2>
         {/* POKEMON */}
         { pokemon.length ? (
@@ -60,11 +60,11 @@ export default function Generation() {
             <p>Loading pokemon...</p>
           )
         }
-      </main>
+      </div>
     ) : (
-    <main className="p-2 border-1">
+    <div className="p-2 border-1">
       <p>Loading region...</p>
-    </main>
+    </div>
    )
   )
 }
