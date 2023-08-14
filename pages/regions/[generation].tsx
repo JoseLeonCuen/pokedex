@@ -39,8 +39,8 @@ export default function Generation() {
 
   return (
     region ? (
-      <div className="p-2">
-        <h1 className="p-2 w-full border-b-2">{capitalize(region)} Pokedex</h1>
+      <main className="p-2">
+        <h2 className="p-2 w-full border-b-2">{capitalize(region)} Pokédex</h2>
         {/* POKEMON */}
         { pokemon.length ? (
           <ul className="p-2">
@@ -60,11 +60,11 @@ export default function Generation() {
             <p>Loading pokemon...</p>
           )
         }
-      </div>
+      </main>
     ) : (
-    <div className="p-2 border-1">
+    <main className="p-2 border-1">
       <p>Loading region...</p>
-    </div>
+    </main>
    )
   )
 }

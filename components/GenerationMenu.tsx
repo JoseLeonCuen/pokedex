@@ -8,8 +8,16 @@ import Button from "./Button";
 const GenerationMenu: React.FC = () => {
   const [regions, setRegions]: [Region[], Dispatch<SetStateAction<[]>>] = useState([]);
   const [showOptions, setShowOptions] = useState(true);
+  const [selectedGen, setSelectedGen] = useState(null as number | null);
 
   const router = useRouter();
+
+  useEffect(() => {
+    const region = Number.parseInt(router.query.id as string);
+    if (region) {
+      setSelectedGen(region);
+    }
+  }, [router]);
 
   useEffect(() => {
     console.log("FETCHING REGIONS:::");
@@ -27,7 +35,7 @@ const GenerationMenu: React.FC = () => {
   }
 
   return (
-  <div className="md:w-40 sm:w-20">
+  <nav className="md:w-40 sm:w-20">
     <Button
       onClick={(() => setShowOptions(!showOptions))}
       variant="menu"
@@ -39,9 +47,16 @@ const GenerationMenu: React.FC = () => {
         {regions.length ? (
           <ul>
             {regions.map((region, idx) => {
+              const selected = idx === selectedGen ? "selected" : "";
+              let accessKey: number | string = idx + 1;
+              accessKey = accessKey < 10 ? (
+                accessKey.toString()
+              ) : (
+                "0"
+              );
               return (
                 <li className="group" key={region.name}>
-                  <Link className="submenu" href={{ pathname: `/regions/${region.name}`, query: {id: idx}}}>
+                  <Link accessKey={accessKey} className={`submenu ${selected}`} href={{ pathname: `/regions/${region.name}`, query: {id: idx}}}>
                     <p>{idx+1}<span className="md:inline sm:hidden">{"- " + capitalize(region.name)}</span></p>
                   </Link>
                 </li>
@@ -55,7 +70,7 @@ const GenerationMenu: React.FC = () => {
     ) : (
       null
     )}
-  </div>
+  </nav>
   )
 }
 

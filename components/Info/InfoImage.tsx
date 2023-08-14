@@ -28,7 +28,7 @@ const InfoType: React.FC<InfoImageProps> = ({title, sprites}) => {
           <Image
             key={spritesToShow[idx]}
             src={url}
-            alt={cleanString(spritesToShow[idx])}
+            alt={cleanString(spritesToShow[idx] + " image of the pokemon")}
             width={100}
             height={100}
           />

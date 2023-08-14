@@ -15,7 +15,7 @@ const ThemeToggle: React.FC<ToggleProps> = ({mode, setMode}) => {
         onClick={() => {
           setMode(!mode);
       }}/>
-      <label htmlFor="themetoggle" className="mx-2">
+      <label tabIndex={0} htmlFor="themetoggle" className="mx-2">
         {mode ? (
           <span>Light mode</span>
         ) : (
