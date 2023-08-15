@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
-import { capitalize, isFromGen } from "../../utils/utils";
+import { capitalize, isFromGen } from "../../utils";
 import { Pokemon, Data } from "../../utils/types";
 import ListItem from "../../components/ListItem";
 

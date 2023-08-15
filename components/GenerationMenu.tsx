@@ -2,7 +2,7 @@ import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Region } from "../utils/types";
-import { capitalize } from "../utils/utils";
+import { capitalize } from "../utils";
 import Button from "./Button";
 
 const GenerationMenu: React.FC = () => {

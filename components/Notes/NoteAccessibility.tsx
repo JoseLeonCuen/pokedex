@@ -1,6 +1,6 @@
 import React from "react";
 import { Ability } from "../../utils/types";
-import { capitalize, cleanString } from "../../utils/utils";
+import { capitalize, cleanString } from "../../utils";
 import Note from "./Note";
 import Badge from "../Badge/Badge";
 

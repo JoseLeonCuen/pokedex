@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Data } from "../utils/types";
-import { namePokemon, getPokemonNumber } from "../utils/utils";
+import { namePokemon, getPokemonNumber } from "../utils";
 
 interface ListItemProps {
   item: Data,

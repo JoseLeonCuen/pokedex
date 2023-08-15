@@ -1,5 +1,5 @@
 import React from "react";
-import { getGen, getHeight, getWeight } from "../../utils/utils";
+import { getGen, getHeight, getWeight } from "../../utils";
 import Info from "./Info";
 
 interface InfoGeneralProps {

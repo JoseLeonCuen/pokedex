@@ -13,9 +13,28 @@ export type RegionData = {
   version_groups: Data;
 }
 
+export type TypeName = "grass" | "fire" | "water" | "normal" | "flying" | "bug" | "electric" | "rock" | "steel" | "fighting" | "ground" | "ice" | "dark" | "psychic" | "poison" | "ghost" | "fairy" | "dragon";
+
+export type TypeData = {
+  name: TypeName
+} & Data;
+
 export type Type = {
   slot: number;
-  type: Data;
+  type: TypeData;
+}
+
+export type TypeInfo = {
+  id: number;
+  name: TypeName;
+  damage_relations: {
+    no_damage_to: TypeData[];
+    half_damage_to: TypeData[];
+    double_damage_to: TypeData[];
+    no_damage_from: TypeData[];
+    half_damage_from: TypeData[];
+    double_damage_from: TypeData[];
+  }
 }
 
 export type Ability = {

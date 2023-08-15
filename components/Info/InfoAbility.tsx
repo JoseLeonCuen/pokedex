@@ -1,10 +1,10 @@
 import React from "react";
 import { Ability } from "../../utils/types";
-import { capitalize, cleanString } from "../../utils/utils";
+import { capitalize, cleanString } from "../../utils";
 import Info from "./Info";
 import Badge from "../Badge/Badge";
 
-const InfoType: React.FC<{abilities: Ability[]}> = ({abilities}) => {
+const InfoAbility: React.FC<{abilities: Ability[]}> = ({abilities}) => {
   return (
     <Info title="Abilities" variant="secondary">
       <div className="">
@@ -26,4 +26,4 @@ const InfoType: React.FC<{abilities: Ability[]}> = ({abilities}) => {
   )
 }
 
-export default InfoType;
+export default InfoAbility;
