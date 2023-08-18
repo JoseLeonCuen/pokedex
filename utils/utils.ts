@@ -8,5 +8,9 @@ export function cleanString(str: string) {
 }
 
 export function genderize(str: string) {
-  return str.replace(/-f$/, " ♀").replace(/-m$/, " ♂");
+  return str.replace(/-[fm]$/,match =>  match == "-f" ? " ♀" : " ♂");
+}
+
+export function snakeToCamelCase (str: string) {
+  return str.replace(/_([a-z])/g, (match, letter) => letter.toUpperCase());
 }

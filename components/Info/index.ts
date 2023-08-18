@@ -1,6 +1,6 @@
 import Info from "./Info";
 import Ability from "./InfoAbility";
-import Advantage from "./InfoAdvantage";
+import Weakness from "./InfoWeakness";
 import General from "./InfoGeneral";
 import Image from "./InfoImage";
 import Type from "./InfoType";
@@ -9,7 +9,7 @@ import Type from "./InfoType";
 export default Info;
 
 export const InfoAbility = Ability;
-export const InfoAdvantage = Advantage;
+export const InfoWeakness = Weakness;
 export const InfoGeneral = General;
 export const InfoImage = Image;
 export const InfoType = Type;

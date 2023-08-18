@@ -16,25 +16,38 @@ export type RegionData = {
 export type TypeName = "grass" | "fire" | "water" | "normal" | "flying" | "bug" | "electric" | "rock" | "steel" | "fighting" | "ground" | "ice" | "dark" | "psychic" | "poison" | "ghost" | "fairy" | "dragon";
 
 export type TypeData = {
-  name: TypeName
+  name: TypeName;
+  double?: boolean;
 } & Data;
 
 export type Type = {
   slot: number;
   type: TypeData;
 }
+export type SnakeDamageRelationFrom = "no_damage_from" | "half_damage_from" | "double_damage_from";
+export type SnakeDamageRelationTo = "no_damage_to" | "half_damage_to" | "double_damage_to";
+export type CamelDamageRelationFrom = "noDamageFrom" | "halfDamageFrom" | "doubleDamageFrom";
+export type CamelDamageRelationTo = "noDamageTo" | "halfDamageTo" | "doubleDamageTo";
+
+export type DamageRelations = {
+  no_damage_to: TypeData[];
+  half_damage_to: TypeData[];
+  double_damage_to: TypeData[];
+  no_damage_from: TypeData[];
+  half_damage_from: TypeData[];
+  double_damage_from: TypeData[];
+}
+
+export type WeaknessRelations = {
+  noDamageFrom: TypeData[];
+  halfDamageFrom: TypeData[];
+  doubleDamageFrom: TypeData[];
+}
 
 export type TypeInfo = {
   id: number;
   name: TypeName;
-  damage_relations: {
-    no_damage_to: TypeData[];
-    half_damage_to: TypeData[];
-    double_damage_to: TypeData[];
-    no_damage_from: TypeData[];
-    half_damage_from: TypeData[];
-    double_damage_from: TypeData[];
-  }
+  damage_relations: DamageRelations;
 }
 
 export type Ability = {

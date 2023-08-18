@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { namePokemon } from "../../utils";
 import { PokemonSpecies } from "../../utils/types";
-import { InfoType, InfoAbility, InfoImage, InfoGeneral, InfoAdvantage } from "../../components/Info";
+import { InfoType, InfoAbility, InfoImage, InfoGeneral, InfoWeakness } from "../../components/Info";
 import { BadgeLink } from "../../components/Badge";
 
 export default function Pokemon() {
@@ -37,7 +37,7 @@ export default function Pokemon() {
             <InfoType types={pokemon.types} />
             <InfoAbility abilities={pokemon.abilities} />
             <InfoGeneral weight={pokemon.weight} height={pokemon.height} id={pokemon.id} />
-            <InfoAdvantage types={pokemon.types} advantage="weak"/>
+            <InfoWeakness types={pokemon.types} />
           </div>
         </div>
       ) : (
