@@ -13,7 +13,7 @@ export function namePokemon(str: string): string {
   return capitalize(cleanString(genderize(str)));
 }
 
-function typeIsListed(weaknesses: WeaknessRelations, target: TypeData): CamelDamageRelationFrom | undefined {
+export function typeIsListed(weaknesses: WeaknessRelations, target: TypeData): CamelDamageRelationFrom | undefined {
   for ( const relation in weaknesses) {
     if (weaknesses[relation as CamelDamageRelationFrom].find(type => type.name === target.name)) {
       return relation as CamelDamageRelationFrom;
@@ -21,11 +21,11 @@ function typeIsListed(weaknesses: WeaknessRelations, target: TypeData): CamelDam
   }
 }
 
-function findTypeIndex(relation: TypeData[], typeName: TypeName): number {
+export function findTypeIndex(relation: TypeData[], typeName: TypeName): number {
   return relation.findIndex(type => type.name === typeName)
 }
 
-function seekAndRemoveType(relation: TypeData[], typeName: TypeName): TypeData[] {
+export function seekAndRemoveType(relation: TypeData[], typeName: TypeName): TypeData[] {
   let result = relation;
   const typeIndex = findTypeIndex(result, typeName);
   if(typeIndex > -1) {
@@ -34,7 +34,7 @@ function seekAndRemoveType(relation: TypeData[], typeName: TypeName): TypeData[]
   return result;
 }
 
-function seekAndDoubleType(relation: TypeData[], type: TypeData): TypeData[] {
+export function seekAndDoubleType(relation: TypeData[], type: TypeData): TypeData[] {
   let result = relation;
   const typeIndex = findTypeIndex(result, type.name);
   if (typeIndex > -1) {
