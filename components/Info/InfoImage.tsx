@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { cleanString } from "../../utils";
+import { replaceDashWithSpace } from "../../utils";
 import Info from "./Info";
 
 interface InfoImageProps {
@@ -28,7 +28,7 @@ const InfoType: React.FC<InfoImageProps> = ({title, sprites}) => {
           <Image
             key={spritesToShow[idx]}
             src={url}
-            alt={cleanString(spritesToShow[idx] + " image of the pokemon")}
+            alt={replaceDashWithSpace(spritesToShow[idx] + " image of the pokemon")}
             width={100}
             height={100}
           />

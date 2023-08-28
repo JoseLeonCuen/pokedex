@@ -1,10 +1,10 @@
 import { getGen, getPokemonNumber, isFromGen } from "./genUtils";
-import { capitalize, cleanString, genderize, snakeToCamelCase } from "./utils";
-import { namePokemon, getHeight, getWeight, evaluateTypeWeakness } from "./pokeUtils";
+import { capitalize, replaceDashWithSpace, genderize, snakeToCamelCase } from "./utils";
+import { namePokemon, getHeight, getWeight, insertWeaknessRelation } from "./pokeUtils";
 
 export {
   capitalize,
-  cleanString,
+  replaceDashWithSpace,
   genderize,
   snakeToCamelCase,
   getGen,
@@ -13,5 +13,5 @@ export {
   namePokemon,
   getHeight,
   getWeight,
-  evaluateTypeWeakness
+  insertWeaknessRelation
 };

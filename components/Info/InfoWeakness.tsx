@@ -7,7 +7,7 @@ import {
   SnakeDamageRelationFrom,
   WeaknessRelations
 } from "../../utils/types";
-import { snakeToCamelCase, evaluateTypeWeakness } from "../../utils";
+import { snakeToCamelCase, insertWeaknessRelation } from "../../utils";
 import Info from "./Info";
 import WeaknessList from "./WeaknessList";
 
@@ -54,7 +54,7 @@ const InfoWeakness: React.FC<InfoWeaknessProps> = ({types}) => {
       const relations = ["no_damage_from","half_damage_from", "double_damage_from"] as SnakeDamageRelationFrom[];
       relations.forEach( relation => {
         pokemonType.damage_relations[relation].forEach((type: TypeData) => {
-          weaknesses = evaluateTypeWeakness(weaknesses, relation, type);
+          weaknesses = insertWeaknessRelation(weaknesses, relation, type);
         })
       });
     });

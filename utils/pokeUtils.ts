@@ -1,4 +1,4 @@
-import { capitalize, cleanString, genderize, snakeToCamelCase } from "./utils";
+import { capitalize, replaceDashWithSpace, genderize, snakeToCamelCase } from "./utils";
 import { WeaknessRelations, TypeData, CamelDamageRelationFrom, TypeName, SnakeDamageRelationFrom } from "./types";
 
 export function getHeight(height: number): string {
@@ -10,7 +10,7 @@ export function getWeight(weight: number): string {
 }
 
 export function namePokemon(str: string): string {
-  return capitalize(cleanString(genderize(str)));
+  return capitalize(replaceDashWithSpace(genderize(str)));
 }
 
 export function typeIsListed(weaknesses: WeaknessRelations, target: TypeData): CamelDamageRelationFrom | undefined {
@@ -43,7 +43,7 @@ export function seekAndDoubleType(relation: TypeData[], type: TypeData): TypeDat
   return result;
 }
 
-export function evaluateTypeWeakness(weaknesses: WeaknessRelations, relation: SnakeDamageRelationFrom, type: TypeData): WeaknessRelations {
+export function insertWeaknessRelation(weaknesses: WeaknessRelations, relation: SnakeDamageRelationFrom, type: TypeData): WeaknessRelations {
   const result = weaknesses
   switch(relation) {
     case 'no_damage_from':

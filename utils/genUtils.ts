@@ -1,4 +1,4 @@
-const regionThreshold = [
+export const regionThreshold = [
   { min: 1, max: 151 },
   { min: 152, max: 251 },
   { min: 252, max: 386 },
@@ -45,7 +45,7 @@ export function getGen(num: number) {
 }
 
 export function getPokemonNumber(url: string) {
-  return Number.parseInt(url.match(/\/([0-9]+)\/$/)?.[1] || "0");
+  return Number.parseInt(url.match(/\/([0-9]+)\/?$/)?.[1] || "0");
 }
 
 export function isFromGen(region: number, url: string): boolean {
