@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { capitalize, isFromGen } from "../../utils";
 import { Pokemon, Data } from "../../utils/types";
 import ListItem from "../../components/ListItem";
+import Loading from "../../components/Loading";
 
 export default function Generation() {
   const [region, setRegion] = useState("");
@@ -57,13 +58,13 @@ export default function Generation() {
               )
             })}
           </ul>) : (
-            <p>Loading pokemon...</p>
+            <Loading />
           )
         }
       </div>
     ) : (
-    <div className="p-2 border-1">
-      <p>Loading region...</p>
+    <div className="p-2 border-1 h-full">
+      <Loading />
     </div>
    )
   )

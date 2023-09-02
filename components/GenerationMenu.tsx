@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Region } from "../utils/types";
 import { capitalize } from "../utils";
 import Button from "./Button";
+import Loading from "./Loading";
 
 const GenerationMenu: React.FC = () => {
   const [regions, setRegions]: [Region[], Dispatch<SetStateAction<[]>>] = useState([]);
@@ -43,7 +44,7 @@ const GenerationMenu: React.FC = () => {
       Gen<span className="md:inline sm:hidden">eration</span>s
     </Button>
     {showOptions ? (
-      <div className="px-2">
+      <div className="px-2 h-full">
         {regions.length ? (
           <ul>
             {regions.map((region, idx) => {
@@ -64,7 +65,7 @@ const GenerationMenu: React.FC = () => {
             })}
           </ul>
         ) : (
-          <p>Loading...</p>
+          <Loading />
         )}
       </div>
     ) : (

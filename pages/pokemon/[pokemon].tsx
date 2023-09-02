@@ -4,6 +4,7 @@ import { namePokemon } from "../../utils";
 import { PokemonSpecies } from "../../utils/types";
 import { InfoType, InfoAbility, InfoImage, InfoGeneral, InfoWeakness } from "../../components/Info";
 import { BadgeLink } from "../../components/Badge";
+import Loading from "../../components/Loading";
 
 export default function Pokemon() {
   const [pokemon, setPokemon] = useState(null as PokemonSpecies | null);
@@ -11,6 +12,7 @@ export default function Pokemon() {
   const pokemonNumber: number = Number.parseInt(router?.query?.pokemon as string);
 
   useEffect(() => {
+    setPokemon(null);
     if(pokemonNumber) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
         .then(result => {
@@ -24,7 +26,7 @@ export default function Pokemon() {
   }, [pokemonNumber]);
   
   return (
-    <div className="">
+    <div className="h-full">
       {pokemon !== null ? (
         <div className="">
           <h2 className="px-4 py-2 w-full border-b-2 border-blue-light bg-blue-lightest sm:text-lg md:text-2xl dark:bg-blue-dark">
@@ -41,9 +43,7 @@ export default function Pokemon() {
           </div>
         </div>
       ) : (
-        <div>
-          <h2>Loading... </h2>
-        </div>
+        <Loading />
       )}
     </div>
   )
