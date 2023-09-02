@@ -62,7 +62,7 @@ const InfoWeakness: React.FC<InfoWeaknessProps> = ({types}) => {
   }, [typesInfo]);
 
   return (
-    <Info title="Weaknesses" variant="secondary">
+    <Info title="Weaknesses">
       <div className="">
         {Object.keys(damageRelations).map(relation => {
           return <WeaknessList

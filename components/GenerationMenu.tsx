@@ -36,7 +36,7 @@ const GenerationMenu: React.FC = () => {
   }
 
   return (
-  <nav className="md:w-40 sm:w-20">
+  <nav className="md:w-40 sm:w-20 sm:relative xs:absolute">
     <Button
       onClick={(() => setShowOptions(!showOptions))}
       variant="menu"
@@ -44,7 +44,7 @@ const GenerationMenu: React.FC = () => {
       Gen<span className="md:inline sm:hidden">eration</span>s
     </Button>
     {showOptions ? (
-      <div className="px-2 h-full">
+      <div className="px-2">
         {regions.length ? (
           <ul>
             {regions.map((region, idx) => {

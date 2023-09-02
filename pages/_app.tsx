@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={darkMode ? "dark" : ""}>
       <div className="
-        grid grid-rows-6 grid-cols-5
+        grid grid-rows-13 grid-cols-5
         bg-background text-blue-dark h-screen
         dark:bg-background-dark dark:text-blue-lightest
       ">

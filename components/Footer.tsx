@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="
-      col-span-5
+      col-span-5 row-span-2
       w-full border-t-2 border-blue-light text-blue-lightest bg-blue-dark
       dark:border-blue-light dark:bg-blue-darkest
     ">

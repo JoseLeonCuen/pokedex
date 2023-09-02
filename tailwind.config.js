@@ -60,12 +60,21 @@ module.exports = {
       water: '#3c6be2'
     },
     screens: {
-      sm: '480px',
-      md: '600px',
+      xs: '10px',
+      sm: '600px',
+      md: '740px',
       lg: '976px',
       xl: '1440px',
     },
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        '13': 'repeat(13, minmax(0, 1fr));'
+      },
+      gridRow: {
+        'span-9': 'span 9 / span 9',
+        'span-10': 'span 10 / span 10'
+      }
+    },
   },
   darkMode: "class",
   plugins: [],

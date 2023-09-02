@@ -6,16 +6,17 @@ interface PanelProps {
 }
 const Panel: React.FC<PanelProps> = ({children, variant="left"}) => {
   const borderSide = variant == "left" ? (
-    "border-r-4"
+    "sm:border-r-4"
   ) : (
-    "border-l-4"
+    "sm:border-l-4"
   )
   return (
   <div className={`
-    row-span-4
+    sm:row-span-10 sm:col-span-1
     flex ${borderSide} p-4  border-blue-light bg-background
     dark:bg-background-dark
-    justify-center
+    sm:justify-center sm:border-b-0
+    xs: row-span-1 xs: col-span-5 xs:border-b-2
   `}>
     {children}
   </div>
