@@ -1,3 +1,5 @@
+import { GenName } from "./types";
+
 export const regionThreshold = [
   { min: 1, max: 151 },
   { min: 152, max: 251 },
@@ -10,6 +12,19 @@ export const regionThreshold = [
   { min: 891, max: 905},
   { min: 906, max: 1010 }
 ];
+
+const genIDs = {
+  kanto: 0,
+  johto: 1,
+  hoenn: 2,
+  sinnoh: 3,
+  unova: 4,
+  kalos: 5,
+  alola: 6,
+  galar: 7,
+  hisui: 8,
+  paldea: 9,
+}
 
 export function getGen(num: number) {
   if (num <= regionThreshold[0].max) {
@@ -48,7 +63,7 @@ export function getPokemonNumber(url: string) {
   return Number.parseInt(url.match(/\/([0-9]+)\/?$/)?.[1] || "0");
 }
 
-export function isFromGen(region: number, url: string): boolean {
+export function isFromGen(region: GenName, url: string): boolean {
   const pkmnNum = getPokemonNumber(url);
-  return regionThreshold[region].min <= pkmnNum && regionThreshold[region].max > pkmnNum;
+  return regionThreshold[genIDs[region]].min <= pkmnNum && regionThreshold[genIDs[region]].max > pkmnNum;
 }

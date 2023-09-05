@@ -26,11 +26,11 @@ describe("Gen Utils", () => {
   describe("isFromGen", () => {
     test("Returns true when the pokemon belongs to a certain generation based on its URL", () => {
         let testURL = "https://test/9";
-        expect(isFromGen(0, testURL)).toBe(true);
+        expect(isFromGen("kanto", testURL)).toBe(true);
     });
     test("Returns false when the pokemon does not belong to a certain generation based on its URL", () => {
         let testURL = "https://test//815";
-        expect(isFromGen(2, testURL)).toBe(false);
+        expect(isFromGen("hoenn", testURL)).toBe(false);
     });
   });
 });

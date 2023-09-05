@@ -7,7 +7,7 @@ import type { AppProps } from 'next/app';
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Panel from "../components/Panel";
-import GenerationMenu from "../components/GenerationMenu";
+import GenerationMenu from "../components/Menu/GenerationMenu";
 import Footer from "../components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {

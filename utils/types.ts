@@ -15,6 +15,8 @@ export type RegionData = {
 
 export type TypeName = "grass" | "fire" | "water" | "normal" | "flying" | "bug" | "electric" | "rock" | "steel" | "fighting" | "ground" | "ice" | "dark" | "psychic" | "poison" | "ghost" | "fairy" | "dragon";
 
+export type GenName = "kanto" | "johto" | "kanto" | "hoenn" | "sinnoh" | "unova" | "kalos" | "alola" | "galar" | "hisui" | "paldea";
+
 export type TypeData = {
   name: TypeName;
   double?: boolean;
