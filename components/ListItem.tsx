@@ -8,13 +8,14 @@ interface ListItemProps {
   key: string;
 } 
 
+// TODO: either abstract the component or rename it
 const ListItem: React.FC<ListItemProps> = ({item, key}) => {
   const pokemonNumber = getPokemonNumber(item.url);
   return (
     <li key={key} className="m-1 hover:bg-gray-300">
-    <Link className="text-left w-full" href={`/pokemon/${pokemonNumber}`}>
-      {namePokemon(item.name)}
-    </Link>
+      <Link className="text-left w-full" href={`/pokemon/${pokemonNumber}`}>
+        {namePokemon(item.name)}
+      </Link>
     </li>
   );
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
-import { capitalize, isFromGen } from "../../utils";
+import { isFromGen } from "../../utils";
 import { Pokemon, Data, GenName} from "../../utils/types";
-import ListItem from "../../components/ListItem";
 import Loading from "../../components/Loading";
+import List from "../../components/List";
 
 export default function Generation() {
   const [region, setRegion] = useState("");
@@ -38,35 +38,21 @@ export default function Generation() {
       })
   }, [genName]);
 
+  const listData = pokemon.map( pkmn => ({
+    name: pkmn.pokemon_species.name,
+    url: pkmn.pokemon_species.url
+  }));
+
   return (
-    region ? (
-      <div className="p-2 h-full">
-        { pokemon.length ? (
-          <>
-            <h2 className="p-2 w-full border-b-2">{capitalize(region)} Pokédex</h2>
-            <ul className="p-2">
-              {pokemon.map( pkmn => {
-                let data = {
-                  name: pkmn.pokemon_species.name,
-                  url: pkmn.pokemon_species.url
-                }
-                return (
-                  <ListItem
-                    key={pkmn.pokemon_species.name}
-                    item={data}
-                  />
-                )
-              })}
-            </ul>
-          </> ): (
-            <Loading />
-          )
-        }
-      </div>
+    pokemon.length ? (
+      <List
+        title={region + " Pokédex"}
+        listItems={listData}
+      />
     ) : (
-    <div className="p-2 border-1 h-full">
-      <Loading />
-    </div>
-   )
+      <div className="p-2 border-1 h-full">
+        <Loading />
+      </div>
+    )
   )
 }
