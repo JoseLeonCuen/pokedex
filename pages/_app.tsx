@@ -7,7 +7,7 @@ import type { AppProps } from 'next/app';
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Panel from "../components/Panel";
-import GenerationMenu from "../components/Menu/GenerationMenu";
+import { GenerationMenu, TypeMenu } from "../components/Menu";
 import Footer from "../components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Header mode={darkMode} setMode={setDarkMode}/>
           <Panel>
             <GenerationMenu />
+            <TypeMenu />
           </Panel>
           <Main>
             <Component {...pageProps} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import { isFromGen } from "../../utils";
-import { Pokemon, Data, GenName} from "../../utils/types";
+import { Pokemon, GenName} from "../../utils/types";
 import Loading from "../../components/Loading";
 import List from "../../components/List";
 

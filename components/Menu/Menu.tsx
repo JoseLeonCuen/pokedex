@@ -10,11 +10,12 @@ interface NavMenuProps {
     options: any[];
     buttonText: string | React.ReactNode;
     category: string;
+    open?: boolean;
     numbered?: boolean;
 };
 
-const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, numbered = false}) => {
-  const [showOptions, setShowOptions] = useState(true);
+const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, open = false, numbered = false}) => {
+  const [showOptions, setShowOptions] = useState(open);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
   const router = useRouter();
@@ -29,7 +30,7 @@ const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, numbere
   }, [router]);
 
   return (
-  <nav className="md:w-40 sm:w-20 sm:relative xs:absolute">
+  <nav className="md:w-40 sm:w-20 sm:relative xs:absolute py-2">
     <Button
       onClick={(() => setShowOptions(!showOptions))}
       variant="menu"
@@ -54,7 +55,7 @@ const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, numbere
                     {numbered ? (
                         <p>{idx+1}<span className="md:inline sm:hidden">{" - " + capitalize(option.name)}</span></p>
                     ) : (
-                        <p>capitalize(option.name)</p>
+                        <p>{capitalize(option.name)}</p>
                     )
 
                     }
