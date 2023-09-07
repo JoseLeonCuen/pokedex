@@ -19,7 +19,7 @@ const GenerationMenu: React.FC = () => {
   return (
     <Menu
       options={regions}
-      buttonText={<span>Gen<span className="md:inline sm:hidden">eration</span>s</span>}
+      buttonText={<span>Gen<span className="lg:inline sm:hidden">eration</span>s</span>}
       open={true}
       numbered={true}
       category="regions"

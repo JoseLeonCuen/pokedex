@@ -21,7 +21,7 @@ const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, open = 
   const router = useRouter();
 
   useEffect(() => {
-      if(router.query[category]) {
+    if(router.query[category]) {
         const index = options.findIndex( option => option.name.toLowerCase().includes(router.query[category]));
         setSelectedOption(index);
     } else {
@@ -30,7 +30,7 @@ const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, open = 
   }, [router]);
 
   return (
-  <nav className="md:w-40 sm:w-20 sm:relative xs:absolute py-2">
+  <nav className="lg:w-52 sm:w-20 z-10 py-2">
     <Button
       onClick={(() => setShowOptions(!showOptions))}
       variant="menu"
@@ -53,7 +53,7 @@ const NavMenu: React.FC<NavMenuProps> = ({options, buttonText, category, open = 
                 <li className="group" key={option.name}>
                     <Link accessKey={accessKey} className={`submenu ${selected}`} href={{ pathname: `/${category}/${option.name}`}}>
                     {numbered ? (
-                        <p>{idx+1}<span className="md:inline sm:hidden">{" - " + capitalize(option.name)}</span></p>
+                        <p>{idx+1}<span className="lg:inline sm:hidden">{" - " + capitalize(option.name)}</span></p>
                     ) : (
                         <p>{capitalize(option.name)}</p>
                     )

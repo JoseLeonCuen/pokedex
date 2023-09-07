@@ -26,7 +26,7 @@
   }
   
   .submenu {
-    @apply block bg-submenu w-full border-b-2 rounded-sm py-1 px-2 border-blue-light hover:bg-blue hover:text-white dark:hover:bg-blue group-last:rounded-b-xl md:text-left sm:text-center dark:bg-blue-darkest;
+    @apply block bg-submenu w-full border-b-2 rounded-sm py-1 px-2 border-blue-light hover:bg-blue hover:text-white dark:hover:bg-blue group-last:rounded-b-xl lg:text-left sm:text-center dark:bg-blue-darkest;
   }
 
   .selected {

@@ -12,9 +12,15 @@ interface ListItemProps {
 const ListItem: React.FC<ListItemProps> = ({item, key}) => {
   const pokemonNumber = getPokemonNumber(item.url);
   return (
-    <li key={key} className="m-1 hover:bg-gray-300">
-      <Link className="text-left w-full" href={`/pokemon/${pokemonNumber}`}>
-        {namePokemon(item.name)}
+    <li key={key} className="mx-1
+        hover:bg-blue
+        border-b-2 border-blue-dark
+      ">
+      <Link className="
+        p-3 py-2
+        block text-left w-full        
+      " href={`/pokemon/${pokemonNumber}`}>
+        {"#" + pokemonNumber + " - " + namePokemon(item.name)}
       </Link>
     </li>
   );

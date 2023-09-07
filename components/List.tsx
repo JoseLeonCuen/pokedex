@@ -10,8 +10,12 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({title, listItems}) => {
   return (
-    <div className="p-2 h-full">
-        <h2 className="p-2 w-full border-b-2">{capitalize(title)}</h2>
+    <div className="px-2 h-full">
+        <h2 className="
+            p-2 w-full border-b-2
+            bg-background dark:bg-background-dark
+        ">
+        {capitalize(title)}</h2>
         <ul className="p-2">
             {listItems.map( item => {
             return (
