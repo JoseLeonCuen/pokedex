@@ -20,6 +20,10 @@ const InfoType: React.FC<InfoImageProps> = ({title, sprites}) => {
     return sprites[sprite];
   });
 
+  if (spriteURLs[0] === null) {
+    return null;
+  }
+
   return (
     <Info>
       <div className="flex place-content-center">

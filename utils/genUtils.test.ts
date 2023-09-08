@@ -1,5 +1,11 @@
 import { describe, expect, test } from "@jest/globals";
-import { regionThreshold, getGen, getPokemonNumber, isFromGen } from "./genUtils";
+import {
+  regionThreshold,
+  getGen,
+  getPokemonNumber,
+  isFromGen,
+  isNotNumbered
+} from "./genUtils";
 
 describe("Gen Utils", () => {
   describe("getGen", () => {
@@ -31,6 +37,15 @@ describe("Gen Utils", () => {
     test("Returns false when the pokemon does not belong to a certain generation based on its URL", () => {
         let testURL = "https://test//815";
         expect(isFromGen("hoenn", testURL)).toBe(false);
+    });
+  });
+  
+  describe("isNotNumbered", () => {
+    test("Returns true when the received number exceeds the range of the generation thresholds", () => {       
+        expect(isNotNumbered(1200)).toBe(true);
+    });
+    test("Returns false when the received number is withing the generation ranges", () => {
+        expect(isNotNumbered(666)).toBe(false);
     });
   });
 });

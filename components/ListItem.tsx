@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Data } from "../utils/types";
-import { namePokemon, getPokemonNumber } from "../utils";
+import { namePokemon, getPokemonNumber, isNotNumbered } from "../utils";
 
 interface ListItemProps {
   item: Data,
@@ -20,7 +20,11 @@ const ListItem: React.FC<ListItemProps> = ({item, key}) => {
         p-3 py-2
         block text-left w-full        
       " href={`/pokemon/${pokemonNumber}`}>
-        {"#" + pokemonNumber + " - " + namePokemon(item.name)}
+        {isNotNumbered(pokemonNumber) ? (
+          namePokemon(item.name)
+          ) : (
+          "#" + pokemonNumber + " - " + namePokemon(item.name)
+        )}
       </Link>
     </li>
   );

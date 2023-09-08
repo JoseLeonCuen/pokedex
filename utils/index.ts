@@ -1,4 +1,4 @@
-import { getGen, getPokemonNumber, isFromGen } from "./genUtils";
+import { getGen, getPokemonNumber, isFromGen, isNotNumbered } from "./genUtils";
 import { capitalize, replaceDashWithSpace, genderize, snakeToCamelCase } from "./utils";
 import { namePokemon, getHeight, getWeight, insertWeaknessRelation } from "./pokeUtils";
 
@@ -10,6 +10,7 @@ export {
   getGen,
   getPokemonNumber,
   isFromGen,
+  isNotNumbered,
   namePokemon,
   getHeight,
   getWeight,

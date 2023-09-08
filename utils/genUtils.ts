@@ -59,6 +59,12 @@ export function getGen(num: number) {
   }
 }
 
+// In case the numbered pokemon is part of a special case like a Mega evolution
+// of a different, numbered pokemon
+export function isNotNumbered(num: number): boolean {
+  return num > regionThreshold[9].max;
+}
+
 export function getPokemonNumber(url: string) {
   return Number.parseInt(url.match(/\/([0-9]+)\/?$/)?.[1] || "0");
 }
